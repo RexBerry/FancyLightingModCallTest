@@ -1,0 +1,3 @@
+displayName = Fancy Lighting Mod Call Test
+author = Rex
+version = 0.1
