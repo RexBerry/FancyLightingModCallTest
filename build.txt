@@ -1,3 +1,6 @@
 displayName = Fancy Lighting Mod Call Test
 author = Rex
 version = 0.1
+
+This isn't required, just testing that this works
+sortBefore = FancyLighting

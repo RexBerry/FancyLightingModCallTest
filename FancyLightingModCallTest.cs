@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -14,7 +10,7 @@ namespace FancyLightingModCallTest
     // Please read https://github.com/tModLoader/tModLoader/wiki/Basic-tModLoader-Modding-Guide#mod-skeleton-contents for more information about the various files in a mod.
     public class FancyLightingModCallTest : Mod
     {
-        public override void PostSetupContent()
+        public override void Load()
         {
             if (ModLoader.TryGetMod("FancyLighting", out var fancyLighting))
             {
@@ -32,6 +28,13 @@ namespace FancyLightingModCallTest
                 );
                 // fancyLighting.Call("RemoveCustomTileLighting", TileID.Dirt);
                 Console.WriteLine(fancyLighting.Call("GarbageCommand"));
+
+                Console.WriteLine(
+                    fancyLighting.Call("ForceEnableCompatibilitySetting", "DisableMainMenuCapture")
+                );
+                Console.WriteLine(
+                    fancyLighting.Call("ForceEnableCompatibilitySetting", "GarbageSetting")
+                );
             }
         }
 
@@ -67,6 +70,6 @@ namespace FancyLightingModCallTest
         }
 
         private static void ModifyFancySkyLightShadingStrength(ref float weatherMultiplier) =>
-            weatherMultiplier = 0f;
+            weatherMultiplier *= 2f;
     }
 }
